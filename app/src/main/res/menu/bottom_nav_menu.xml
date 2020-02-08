@@ -7,6 +7,11 @@
         android:title="@string/title_home" />
 
     <item
+        android:id="@+id/navigation_kategori"
+        android:icon="@drawable/ic_category"
+        android:title="@string/title_category" />
+
+    <item
         android:id="@+id/navigation_transaksi"
         android:icon="@drawable/ic_assignment_grey"
         android:title="@string/title_dashboard" />

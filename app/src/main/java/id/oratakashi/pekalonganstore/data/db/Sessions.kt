@@ -17,6 +17,19 @@ class Sessions(context: Context) {
             }
             return sessions as Sessions
         }
+
+        /**
+         * User Sessions
+         */
+
+        val id_user : String = "id_user"
+        val name : String = "name"
+        val email : String = "email"
+        val phone : String = "phone"
+        val photo : String = "photo"
+        val subdistrict_id : String = "subdistrict_id"
+        val address : String = "address"
+        val store_id : String = "store_id"
     }
     var pref : SharedPreferences
     var editor : SharedPreferences.Editor? = null
@@ -60,6 +73,10 @@ class Sessions(context: Context) {
 
     fun getBoolean(key: String) : Boolean{
         return pref.getBoolean(key, false)
+    }
+
+    fun isLogin() : Boolean{
+        return getString(id_user).isNotEmpty()
     }
 
     fun Logout(){

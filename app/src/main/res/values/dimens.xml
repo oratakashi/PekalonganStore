@@ -67,4 +67,7 @@
     <dimen name="margin_15">15dp</dimen>
     <dimen name="font_10">10sp</dimen>
     <dimen name="size_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+    <dimen name="font_11">11sp</dimen>
 </resources>

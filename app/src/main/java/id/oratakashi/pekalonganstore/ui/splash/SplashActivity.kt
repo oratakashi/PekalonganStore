@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import id.oratakashi.pekalonganstore.R
+import id.oratakashi.pekalonganstore.root.App
 import id.oratakashi.pekalonganstore.ui.login.LoginActivity
+import id.oratakashi.pekalonganstore.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -14,7 +16,11 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            startActivity(Intent(applicationContext, LoginActivity::class.java))
+            if(App.sessions!!.isLogin()){
+                startActivity(Intent(applicationContext, MainActivity::class.java))
+            }else{
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }
             finish()
         }, 2000L)
     }

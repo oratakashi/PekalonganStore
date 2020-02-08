@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
+    android:id="@+id/clBase"
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
 
@@ -70,13 +71,44 @@
         android:layout_marginEnd="@dimen/margin_10"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginEnd="@dimen/margin_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/custom_button"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/title_please_wait"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/font_14"/>
+        </RelativeLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogin"
         style="@style/buttonPrimaryMatchParent"
         android:layout_marginStart="@dimen/margin_10"
         android:layout_marginTop="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_10"
         android:text="@string/title_login"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />

@@ -15,4 +15,18 @@
     <string name="title_name">Nama Lengkap</string>
     <string name="title_sudah_punya_akun">Sudah Punya akun?</string>
     <string name="title_masuk_akun_yang_ada">Masuk Akun Yang Sudah Ada</string>
+    <string name="title_category">Kategori</string>
+    <string name="foo">Lorem Ipsum</string>
+    <string name="title_your_product">Produk Kamu</string>
+    <string name="title_your_etalase">Etalase Kamu</string>
+    <string name="title_your_store">Toko Kamu</string>
+    <string name="title_change_profile">Ubah Profile</string>
+    <string name="title_comment_change_profile">Ubah informasi pribadi kamu disini</string>
+    <string name="title_change_address">Ubah Alamat</string>
+    <string name="title_comment_change_address">Ubah informasi alamat pengiriman kamu</string>
+    <string name="title_logout">Logout</string>
+    <string name="title_comment_logout">Akhiri sesi kamu saat ini</string>
+    <string name="title_empty_store">Kamu belum memiliki toko</string>
+    <string name="title_empty_store_comment">Sepertinya kamu belum punya toko, Ayo daftar jadi penjual untuk memulai bisnis kamu</string>
+    <string name="title_please_wait">Mohon Tunggu...</string>
 </resources>

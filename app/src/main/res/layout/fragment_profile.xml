@@ -131,6 +131,7 @@
                 </LinearLayout>
                 <!-- Panel Open Store -->
                 <RelativeLayout
+                    android:id="@+id/llOpenStore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/margin_20"

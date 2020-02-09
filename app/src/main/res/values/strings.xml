@@ -29,4 +29,9 @@
     <string name="title_empty_store">Kamu belum memiliki toko</string>
     <string name="title_empty_store_comment">Sepertinya kamu belum punya toko, Ayo daftar jadi penjual untuk memulai bisnis kamu</string>
     <string name="title_please_wait">Mohon Tunggu...</string>
+    <string name="label_store_user_title">Mulai bisnismu \n di Pekalongan Store</string>
+    <string name="label_store_user_description">Buka toko mu sekarang dan dapatkan beberapa manfaat sebagai penjual</string>
+    <string name="label_store_user_circle1">Buka toko dengan mudah, praktis dan tanpa syarat</string>
+    <string name="label_store_user_circle2">Akses market yang luas ke \nseluruh pengguna potensial di \nseluruh Indonesia</string>
+    <string name="label_store_user_circle3">Dapatkan fitur ekslusif yang \nmenunjang kebutuhan bisnismu</string>
 </resources>

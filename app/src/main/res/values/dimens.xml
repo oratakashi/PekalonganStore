@@ -70,4 +70,9 @@
     <dimen name="margin_25">25dp</dimen>
     <dimen name="margin_22">22dp</dimen>
     <dimen name="font_11">11sp</dimen>
+    <dimen name="size_189">189dp</dimen>
+    <dimen name="size_155">155dp</dimen>
+    <dimen name="line_spacing_4sp">4sp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_37">37dp</dimen>
 </resources>

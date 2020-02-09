@@ -15,6 +15,7 @@ import id.oratakashi.pekalonganstore.R
 import id.oratakashi.pekalonganstore.data.db.Sessions
 import id.oratakashi.pekalonganstore.root.App
 import id.oratakashi.pekalonganstore.ui.login.LoginActivity
+import id.oratakashi.pekalonganstore.ui.storeuser.StoreUserActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 /**
@@ -53,5 +54,9 @@ class ProfileFragment : Fragment() {
                   dialog!!.dismiss()
             }
             .show()
+    }
+
+    @OnClick(R.id.llOpenStore) fun onOpenStore(){
+        startActivity(Intent(context, StoreUserActivity::class.java))
     }
 }

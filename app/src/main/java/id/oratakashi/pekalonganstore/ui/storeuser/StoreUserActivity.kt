@@ -5,6 +5,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.oratakashi.pekalonganstore.R
+import id.oratakashi.pekalonganstore.data.db.Sessions
+import id.oratakashi.pekalonganstore.root.App
 
 class StoreUserActivity : AppCompatActivity() {
 
@@ -19,6 +21,13 @@ class StoreUserActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.flOpenStore, StoreUserFragment()).commit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(App.sessions!!.getString(Sessions.store_id).isNotEmpty()){
+            finish()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

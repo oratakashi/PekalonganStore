@@ -29,28 +29,60 @@
                 android:layout_marginTop="@dimen/margin_20"
                 android:layout_marginStart="@dimen/margin_10"
                 android:src="@drawable/no_pict"/>
-            <TextView
-                android:id="@+id/tvName"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/foo"
-                android:textColor="@color/white"
-                android:fontFamily="@font/bold"
-                android:textSize="@dimen/font_18"
                 android:layout_toEndOf="@+id/ivPhoto"
                 android:layout_marginStart="@dimen/margin_10"
-                android:layout_marginTop="@dimen/margin_22"/>
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/foo"
-                android:textColor="@color/white"
-                android:fontFamily="@font/regular"
-                android:textSize="@dimen/font_12"
-                android:layout_below="@+id/tvName"
-                android:layout_toEndOf="@+id/ivPhoto"
-                android:layout_marginStart="@dimen/margin_10"/>
+                android:layout_marginTop="@dimen/margin_22"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/llProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/foo"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/bold"
+                        android:textSize="@dimen/font_18" />
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/foo"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/regular"
+                        android:textSize="@dimen/font_12"/>
+                </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/font_18"
+                            android:layout_marginEnd="230dp"
+                            android:layout_marginTop="@dimen/margin_5"
+                            android:background="@color/placeholder_bg" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/font_12"
+                            android:layout_marginTop="@dimen/margin_5"
+                            android:layout_marginEnd="150dp"
+                            android:background="@color/placeholder_bg" />
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -176,6 +208,7 @@
                     android:layout_marginTop="@dimen/margin_10"
                     android:background="@color/section"/>
                 <LinearLayout
+                    android:id="@+id/llMenu_Profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"

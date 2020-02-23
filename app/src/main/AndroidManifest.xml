@@ -3,6 +3,11 @@
     package="id.oratakashi.pekalonganstore">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <application
         android:name=".root.App"
@@ -11,8 +16,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.storeuser.create.StoreUserCreateActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.profile.edit_profile.EditProfileActivity"></activity>
+        <activity android:name=".ui.storeuser.create.StoreUserCreateActivity" />
         <activity android:name=".ui.storeuser.StoreUserActivity" />
         <activity
             android:name=".ui.register.RegisterActivity"

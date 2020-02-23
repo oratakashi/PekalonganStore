@@ -75,4 +75,9 @@
     <dimen name="line_spacing_4sp">4sp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_37">37dp</dimen>
+    <dimen name="margin_200">200dp</dimen>
+    <dimen name="size_200">200dp</dimen>
+    <dimen name="margin_180">180dp</dimen>
+    <dimen name="size_82">82dp</dimen>
+    <dimen name="size_54">54dp</dimen>
 </resources>

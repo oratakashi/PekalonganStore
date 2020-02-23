@@ -34,4 +34,23 @@
     <string name="label_store_user_circle1">Buka toko dengan mudah, praktis dan tanpa syarat</string>
     <string name="label_store_user_circle2">Akses market yang luas ke \nseluruh pengguna potensial di \nseluruh Indonesia</string>
     <string name="label_store_user_circle3">Dapatkan fitur ekslusif yang \nmenunjang kebutuhan bisnismu</string>
+    <string name="title_hallo">Hallo,</string>
+    <string name="title_command_create_store">Silahkan isi detail toko kamu, agar orang memudahkan \norang lain dalam berbelanja di toko kamu</string>
+    <string name="title_store_name">Nama Toko</string>
+    <string name="title_store_description">Deskripsi Toko</string>
+    <string name="title_store_location">Lokasi Toko</string>
+    <string name="title_search_subdistrict">Cari Kecamatan</string>
+    <string name="title_command_search_district">Silahkan masukan Nama Kecamatan kamu  di kolom pencarian</string>
+    <string name="title_comment_no_subdistrict">Maaf sepertinya Kelurahan / Desa yang kamu cari tidak ada di data kami</string>
+    <string name="title_retry">Coba lagi</string>
+    <string name="title_failed_get_data">Gagal mendapatkan data</string>
+    <string name="title_unstable_network">Sepertinya jaringan sedang tidak stabil, silahkan coba lagi nanti!</string>
+    <string name="title_save">Simpan</string>
+    <string name="title_phone">No Telp</string>
+    <string name="title_address">Alamat</string>
+    <string name="title_subdistrict">Kecamatan</string>
+    <string name="title_photo_profile">Foto Profil</string>
+    <string name="title_gallery">Galeri</string>
+    <string name="title_camera">Kamera</string>
+    <string name="title_delete_photo">Hapus Foto</string>
 </resources>

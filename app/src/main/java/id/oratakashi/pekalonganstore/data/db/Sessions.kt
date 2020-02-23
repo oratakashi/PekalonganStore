@@ -30,6 +30,21 @@ class Sessions(context: Context) {
         val subdistrict_id : String = "subdistrict_id"
         val address : String = "address"
         val store_id : String = "store_id"
+        val regency : String = "regency"
+        val province : String = "province"
+        val district : String = "district"
+        val type : String = "type"
+
+        /**
+         * Store Sessions
+         */
+
+        val store_subdistrict_id : String = "store_subdistrict_id"
+        val store_province : String = "store_province"
+        val store_regency : String = "store_regency"
+        val store_district : String = "store_district"
+        val store_name : String = "store_name"
+        val store_description : String = "store_description"
     }
     var pref : SharedPreferences
     var editor : SharedPreferences.Editor? = null

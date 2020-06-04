@@ -14,8 +14,8 @@ import com.google.android.material.snackbar.Snackbar
 import id.oratakashi.pekalonganstore.R
 import id.oratakashi.pekalonganstore.data.db.Sessions
 import id.oratakashi.pekalonganstore.root.App
-import id.oratakashi.pekalonganstore.ui.region.SubdistrictFragment
-import id.oratakashi.pekalonganstore.ui.region.SubdistrictInterface
+import id.oratakashi.pekalonganstore.ui.region.subdistrict.SubdistrictFragment
+import id.oratakashi.pekalonganstore.ui.region.subdistrict.SubdistrictInterface
 import kotlinx.android.synthetic.main.activity_store_user_create.*
 
 class StoreUserCreateActivity : AppCompatActivity(), SubdistrictInterface.Activity {

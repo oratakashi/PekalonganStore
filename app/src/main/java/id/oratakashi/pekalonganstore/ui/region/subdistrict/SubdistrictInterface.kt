@@ -1,4 +1,4 @@
-package id.oratakashi.pekalonganstore.ui.region
+package id.oratakashi.pekalonganstore.ui.region.subdistrict
 
 interface SubdistrictInterface {
     interface Dialog{

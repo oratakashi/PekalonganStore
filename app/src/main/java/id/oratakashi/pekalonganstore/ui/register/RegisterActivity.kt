@@ -1,10 +1,17 @@
 package id.oratakashi.pekalonganstore.ui.register
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
+import android.transition.Slide
+import android.util.Pair
 import android.view.View
+import android.view.Window
 import android.widget.Toast
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import butterknife.ButterKnife
@@ -24,7 +31,14 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        with(window){
+            requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+            exitTransition = Explode().setDuration(5000)
+            enterTransition = Explode().setDuration(550)
+        }
         setContentView(R.layout.activity_register)
+
+        ViewCompat.setTransitionName(imageView, "ivLogo")
 
         ButterKnife.bind(this)
 
@@ -88,9 +102,22 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
-    @OnClick(R.id.btnLogin) fun onLogin(){
-        startActivity(Intent(applicationContext, LoginActivity::class.java))
+    override fun onBackPressed() {
+        startActivity(Intent(applicationContext, LoginActivity::class.java),
+            ActivityOptions.makeSceneTransitionAnimation(this,
+                Pair<View, String>(imageView, "ivLogo")
+            ).toBundle())
         finish()
+        overridePendingTransition(R.anim.bergerak_maju, R.anim.bergerak_mundur)
+    }
+
+    @OnClick(R.id.btnLogin) fun onLogin(){
+        startActivity(Intent(applicationContext, LoginActivity::class.java),
+            ActivityOptions.makeSceneTransitionAnimation(this,
+                Pair<View, String>(imageView, "ivLogo")
+            ).toBundle())
+        finish()
+        overridePendingTransition(R.anim.bergerak_maju, R.anim.bergerak_mundur)
     }
 
     @OnClick(R.id.btnRegister) fun onRegister(){

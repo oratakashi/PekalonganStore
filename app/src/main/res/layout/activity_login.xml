@@ -7,16 +7,22 @@
     android:id="@+id/clBase"
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/size_256"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/logo"
+    <id.oratakashi.pekalonganstore.utils.widget.SquareFrameLayout
+        android:id="@+id/squareFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_256"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/size_256"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"/>
+    </id.oratakashi.pekalonganstore.utils.widget.SquareFrameLayout>
+
 
     <TextView
         android:id="@+id/textView"
@@ -29,7 +35,7 @@
         android:layout_marginEnd="@dimen/margin_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/squareFrameLayout" />
 
     <com.ndroid.CoolEditText
         android:id="@+id/etEmail"

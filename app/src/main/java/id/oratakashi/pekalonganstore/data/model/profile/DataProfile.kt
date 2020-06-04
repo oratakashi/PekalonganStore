@@ -10,5 +10,5 @@ data class DataProfile (
     @SerializedName("photo") val photo : String?,
     @SerializedName("updated_at") val updated_at : String?,
     @SerializedName("address") val address : String?,
-    @SerializedName("subdistrict") val subdistrict : DataSubdistrict?
+    @SerializedName("villages") val villages : DataVillages?
 )

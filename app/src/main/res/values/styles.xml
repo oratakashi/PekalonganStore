@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -163,9 +163,19 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar.Animation" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowSharedElementEnterTransition" tools:ignore="NewApi">
+            @transition/logo_transition
+        </item>
+        <item name="android:windowExitAnimation" tools:ignore="newApi">
+            @anim/bergerak_mundur
+        </item>
+        <item name="android:windowEnterAnimation">
+            @anim/bergerak_maju
+        </item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

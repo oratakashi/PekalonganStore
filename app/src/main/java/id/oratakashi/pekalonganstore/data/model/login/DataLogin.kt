@@ -8,7 +8,7 @@ data class DataLogin (
     @SerializedName("email") val email : String?,
     @SerializedName("photo") val photo : String?,
     @SerializedName("phone") val phone : String?,
-    @SerializedName("subdistrict_id") val subdistrict_id : String?,
+    @SerializedName("village_id") val village_id : String?,
     @SerializedName("address") val address : String?,
     @SerializedName("store_id") val store_id : String?
 )

@@ -1,4 +1,4 @@
-package id.oratakashi.pekalonganstore.ui.region
+package id.oratakashi.pekalonganstore.ui.region.subdistrict
 
 import android.widget.EditText
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.jakewharton.rxbinding3.widget.TextViewTextChangeEvent
 import com.jakewharton.rxbinding3.widget.textChangeEvents
 import id.oratakashi.pekalonganstore.BuildConfig
-import id.oratakashi.pekalonganstore.data.model.region.ResponseSearchSubdistrict
+import id.oratakashi.pekalonganstore.data.model.region.subdistrict.ResponseSearchSubdistrict
 import id.oratakashi.pekalonganstore.root.App
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver

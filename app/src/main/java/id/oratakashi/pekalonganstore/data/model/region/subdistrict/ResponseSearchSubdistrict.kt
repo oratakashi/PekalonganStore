@@ -1,6 +1,7 @@
-package id.oratakashi.pekalonganstore.data.model.region
+package id.oratakashi.pekalonganstore.data.model.region.subdistrict
 
 import com.google.gson.annotations.SerializedName
+import id.oratakashi.pekalonganstore.data.model.region.subdistrict.DataSearchSubdistrict
 
 data class ResponseSearchSubdistrict (
     @SerializedName("status") val status : Boolean?,

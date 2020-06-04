@@ -53,4 +53,12 @@
     <string name="title_gallery">Galeri</string>
     <string name="title_camera">Kamera</string>
     <string name="title_delete_photo">Hapus Foto</string>
+    <string name="title_search_villages">Kelurahan</string>
+    <string name="title_command_search_villages">Silahkan masukan Nama Kelurahan kamu  di kolom pencarian</string>
+    <string name="title_primary_address">Alamat Utama</string>
+    <string name="title_edit">Ubah</string>
+    <string name="title_delete">Hapus</string>
+    <string name="title_set_primary">Set Utama</string>
+    <string name="tittle_command_empty_address">Ayo daftarkan alamat pengiriman kamu, agar mempermudah kurir mengirimkan barang ke alamat tujuan!</string>
+    <string name="title_empty_address">Daftar alamat kosong</string>
 </resources>

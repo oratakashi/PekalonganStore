@@ -1,6 +1,5 @@
 package id.oratakashi.pekalonganstore.ui.profile.edit_profile
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -27,17 +26,20 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import id.oratakashi.pekalonganstore.R
 import id.oratakashi.pekalonganstore.data.db.Sessions
+import id.oratakashi.pekalonganstore.data.model.region.villages.DataSearchVillage
 import id.oratakashi.pekalonganstore.root.App
 import id.oratakashi.pekalonganstore.ui.dialog.upload_profile.UploadProfileFragment
 import id.oratakashi.pekalonganstore.ui.dialog.upload_profile.UploadProfileInterface
-import id.oratakashi.pekalonganstore.ui.region.SubdistrictFragment
-import id.oratakashi.pekalonganstore.ui.region.SubdistrictInterface
+import id.oratakashi.pekalonganstore.ui.region.subdistrict.SubdistrictFragment
+import id.oratakashi.pekalonganstore.ui.region.subdistrict.SubdistrictInterface
+import id.oratakashi.pekalonganstore.ui.region.villages.VillagesFragment
+import id.oratakashi.pekalonganstore.ui.region.villages.VillagesInterface
 import id.oratakashi.pekalonganstore.utils.FileUtils
 import id.oratakashi.pekalonganstore.utils.ImageHelper
 import id.oratakashi.pekalonganstore.utils.PermissionManager
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
-class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
+class EditProfileActivity : AppCompatActivity(), VillagesInterface.Activity,
     UploadProfileInterface, MultiplePermissionsListener {
 
     lateinit var viewModel: EditProfileViewModel
@@ -47,7 +49,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
     private val pickImage = 1
     private val captureImage = 2
 
-    private var subdiscrict_id = ""
+    private var village_id = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +99,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
                     etAddress.setText(App.sessions!!.getString(Sessions.address))
                     etPhone.setText(App.sessions!!.getString(Sessions.phone))
                     etLocation.setText(
-                        when(App.sessions!!.getString(Sessions.subdistrict_id).isNotEmpty()){
+                        when(App.sessions!!.getString(Sessions.village_id).isNotEmpty()){
                             true -> {
                                 "Tidak diketahui"
                             }
@@ -160,11 +162,11 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
                             }
                         )
                         etLocation.setText(
-                            when(it.data.subdistrict != null){
+                            when(it.data.villages != null){
                                 true -> {
-                                    "${it.data.subdistrict.subdistrict_name}, " +
-                                    "${it.data.subdistrict.type} ${it.data.subdistrict.city}, " +
-                                    it.data.subdistrict.province
+                                    "${it.data.villages.village_name}, " +
+                                    "${it.data.villages.district_name}, ${it.data.villages.regency_name}, " +
+                                    it.data.villages.province_name
                                 }
                                 false -> {
                                     ""
@@ -191,19 +193,25 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
                             }
                         }
 
-                        when(it.data.subdistrict != null){
+                        when(it.data.villages != null){
                             true -> {
-                                App.sessions!!.putString(Sessions.subdistrict_id,
-                                    it.data.subdistrict.subdistrict_id!!)
+                                App.sessions!!.putString(Sessions.village_id,
+                                    it.data.villages.village_id!!)
+                                App.sessions!!.putString(Sessions.village,
+                                    it.data.villages.village_name!!)
+                                App.sessions!!.putString(Sessions.district_id,
+                                    it.data.villages.district_id!!)
                                 App.sessions!!.putString(Sessions.district,
-                                    it.data.subdistrict.subdistrict_name!!)
+                                    it.data.villages.district_name!!)
+                                App.sessions!!.putString(Sessions.regency_id,
+                                    it.data.villages.regency_id!!)
                                 App.sessions!!.putString(Sessions.regency,
-                                    it.data.subdistrict.city!!)
+                                    it.data.villages.regency_name!!)
                                 App.sessions!!.putString(Sessions.province,
-                                    it.data.subdistrict.province!!)
-                                App.sessions!!.putString(Sessions.type,
-                                    it.data.subdistrict.type!!)
-                                subdiscrict_id = it.data.subdistrict.subdistrict_id
+                                    it.data.villages.province_name!!)
+                                App.sessions!!.putString(Sessions.province_id,
+                                    it.data.villages.province_id!!)
+                                village_id = it.data.villages.village_id
                             }
                         }
 
@@ -338,7 +346,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
                             etEmail.text.toString(),
                             etPhone.text.toString(),
                             etAddress.text.toString(),
-                            subdiscrict_id
+                            village_id
                         )
                     }
             }
@@ -404,7 +412,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
 
                         when(it.data.subdistrict != null){
                             true -> {
-                                App.sessions!!.putString(Sessions.subdistrict_id,
+                                App.sessions!!.putString(Sessions.village_id,
                                     it.data.subdistrict.subdistrict_id!!)
                                 App.sessions!!.putString(Sessions.district,
                                     it.data.subdistrict.subdistrict_name!!)
@@ -442,17 +450,11 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
         viewModel.getProfile()
     }
 
-    /**
-     * On Select Region
-     */
-    override fun onSelect(
-        subdiscrict_id: String,
-        provinsi: String,
-        kota: String,
-        kecamatan: String
-    ) {
-        this.subdiscrict_id = subdiscrict_id
-        etLocation.setText("$kecamatan, $kota, $provinsi")
+    override fun onSelect(data: DataSearchVillage) {
+        village_id = data.village_id!!
+        etLocation.setText(
+            "${data.village_name!!}, ${data.district_name}, ${data.regency_name}, ${data.province_name}"
+        )
     }
 
     /**
@@ -529,7 +531,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_save -> {
-                if(subdiscrict_id.isEmpty() || etName.text!!.isEmpty() || etEmail.text!!.isEmpty() ||
+                if(village_id.isEmpty() || etName.text!!.isEmpty() || etEmail.text!!.isEmpty() ||
                     etPhone.text!!.isEmpty() || etAddress.text!!.isEmpty()){
                     Toast.makeText(applicationContext, "Silahkan lengkapi data untuk menyimpan profile kamu!",
                         Toast.LENGTH_SHORT).show()
@@ -539,7 +541,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
                         etEmail.text.toString(),
                         etPhone.text.toString(),
                         etAddress.text.toString(),
-                        subdiscrict_id
+                        village_id
                     )
                 }
             }
@@ -548,7 +550,7 @@ class EditProfileActivity : AppCompatActivity(), SubdistrictInterface.Activity,
     }
 
     @OnClick(R.id.etLocation) fun onSearch(){
-        SubdistrictFragment.newInstance(this).show(supportFragmentManager, "dialog")
+        VillagesFragment.newInstance(this).show(supportFragmentManager, "dialog")
     }
 
     @OnClick(R.id.ivChangePhoto) fun onChangePhoto(){

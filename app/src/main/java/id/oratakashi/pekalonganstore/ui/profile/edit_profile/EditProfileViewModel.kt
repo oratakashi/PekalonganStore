@@ -113,12 +113,12 @@ class EditProfileViewModel : ViewModel() {
         email : String,
         phone : String,
         address : String,
-        subdistrict_id : String
+        village_id : String
     ){
         progressUpdateProfile.value = true
         App.disposable!!.add(
             App.service!!.putUpdateProfile(
-                name, email, phone, address, subdistrict_id
+                name, email, phone, address, village_id
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -2,9 +2,13 @@ package id.oratakashi.pekalonganstore.data.network
 
 import id.oratakashi.pekalonganstore.BuildConfig
 import id.oratakashi.pekalonganstore.data.db.Sessions
+import id.oratakashi.pekalonganstore.data.model.addresses.ResponseAddresses
+import id.oratakashi.pekalonganstore.data.model.addresses.delete.ResponseAddressDelete
+import id.oratakashi.pekalonganstore.data.model.addresses.setprimary.ResponseAddressSetPrimary
 import id.oratakashi.pekalonganstore.data.model.login.ResponseLogin
 import id.oratakashi.pekalonganstore.data.model.profile.ResponseProfile
-import id.oratakashi.pekalonganstore.data.model.region.ResponseSearchSubdistrict
+import id.oratakashi.pekalonganstore.data.model.region.subdistrict.ResponseSearchSubdistrict
+import id.oratakashi.pekalonganstore.data.model.region.villages.ResponseSearchVillage
 import id.oratakashi.pekalonganstore.data.model.register.ResponseRegister
 import id.oratakashi.pekalonganstore.data.model.stores.create.ResponseStoreCreate
 import id.oratakashi.pekalonganstore.data.model.users.delete_photo.ResponseDeletePhoto
@@ -96,11 +100,38 @@ class ApiService {
         email : String,
         phone : String,
         address : String,
-        subdistrict_id : String
+        village_id : String
     ) : Single<ResponseUpdateProfile>{
         return api.putUpdateProfile(
             App.sessions!!.getString(Sessions.id_user),
-            name, email, phone, address, subdistrict_id
+            name, email, phone, address, village_id
         )
+    }
+
+    fun getAddresses() : Single<ResponseAddresses>{
+        return api.getAddresses(
+            App.sessions!!.getString(Sessions.id_user)
+        )
+    }
+
+    fun getVillages(
+        keyword : String
+    ) : Single<ResponseSearchVillage>{
+        return api.getVillages(keyword)
+    }
+
+    fun putStatusAddress(
+        id : String
+    ) : Single<ResponseAddressSetPrimary>{
+        return api.putPrimaryAddress(
+            id,
+            App.sessions!!.getString(Sessions.id_user)
+        )
+    }
+
+    fun deleteAddress(
+        id : String
+    ) : Single<ResponseAddressDelete>{
+        return api.deleteAddress(id)
     }
 }

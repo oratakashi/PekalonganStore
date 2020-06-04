@@ -80,4 +80,9 @@
     <dimen name="margin_180">180dp</dimen>
     <dimen name="size_82">82dp</dimen>
     <dimen name="size_54">54dp</dimen>
+    <dimen name="size_90">90dp</dimen>
+    <dimen name="margin_85">85dp</dimen>
+    <dimen name="size_95">95dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="font_15">15sp</dimen>
 </resources>

@@ -1,8 +1,8 @@
-package id.oratakashi.pekalonganstore.data.model.profile
+package id.oratakashi.pekalonganstore.data.model.region.subdistrict
 
 import com.google.gson.annotations.SerializedName
 
-data class DataSubdistrict (
+data class DataSearchSubdistrict (
     @SerializedName("subdistrict_id") val subdistrict_id : String?,
     @SerializedName("province_id") val province_id : String?,
     @SerializedName("province") val province : String?,

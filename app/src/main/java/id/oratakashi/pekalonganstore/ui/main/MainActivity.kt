@@ -3,7 +3,10 @@ package id.oratakashi.pekalonganstore.ui.main
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
 import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get

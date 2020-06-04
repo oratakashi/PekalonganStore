@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="sequential">
+    <explode android:duration="800"/>
+    <changeBounds android:duration="800"/>
+    <changeTransform android:duration="800"/>
+    <changeClipBounds android:duration="800"/>
+    <changeImageTransform android:duration="800"/>
+</transitionSet>

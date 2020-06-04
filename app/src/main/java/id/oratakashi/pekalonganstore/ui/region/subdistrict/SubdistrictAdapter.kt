@@ -1,15 +1,16 @@
-package id.oratakashi.pekalonganstore.ui.region
+package id.oratakashi.pekalonganstore.ui.region.subdistrict
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.oratakashi.pekalonganstore.R
-import id.oratakashi.pekalonganstore.data.model.region.DataSearchSubdistrict
+import id.oratakashi.pekalonganstore.data.model.region.subdistrict.DataSearchSubdistrict
 import kotlinx.android.synthetic.main.adapter_subdistrict.view.*
 
 class SubdistrictAdapter(data : List<DataSearchSubdistrict>, interfaces : SubdistrictInterface.Activity,
-                         dialog : SubdistrictInterface.Dialog) : RecyclerView.Adapter<SubdistrictAdapter.ViewHolder>() {
+                         dialog : SubdistrictInterface.Dialog
+) : RecyclerView.Adapter<SubdistrictAdapter.ViewHolder>() {
 
     val data = data
     val interfaces = interfaces
@@ -18,7 +19,9 @@ class SubdistrictAdapter(data : List<DataSearchSubdistrict>, interfaces : Subdis
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_subdistrict,
             parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

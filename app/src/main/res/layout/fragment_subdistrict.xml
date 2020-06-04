@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:cardCornerRadius="@dimen/radius_8"
     style="@style/AppBottomSheetDialogTheme"
-    tools:context="id.oratakashi.pekalonganstore.ui.region.SubdistrictFragment">
+    tools:context="id.oratakashi.pekalonganstore.ui.region.subdistrict.SubdistrictFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_command_search_district"
                 android:textAlignment="center"
-                android:fontFamily="@string/register_now"
+                android:fontFamily="@font/regular"
                 android:layout_marginTop="@dimen/margin_20"
                 android:textSize="@dimen/font_14"
                 android:layout_marginBottom="@dimen/margin_100"/>

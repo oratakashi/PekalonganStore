@@ -17,6 +17,7 @@ import butterknife.OnClick
 import id.oratakashi.pekalonganstore.R
 import id.oratakashi.pekalonganstore.data.db.Sessions
 import id.oratakashi.pekalonganstore.root.App
+import id.oratakashi.pekalonganstore.ui.addresses.AddressActivity
 import id.oratakashi.pekalonganstore.ui.login.LoginActivity
 import id.oratakashi.pekalonganstore.ui.profile.edit_profile.EditProfileActivity
 import id.oratakashi.pekalonganstore.ui.storeuser.StoreUserActivity
@@ -46,6 +47,11 @@ class ProfileFragment : Fragment() {
         tvEmail.text = App.sessions!!.getString(Sessions.email)
 
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+
+        srProfile.setOnRefreshListener {
+            srProfile.isRefreshing = false
+            viewModel.getProfile()
+        }
 
         setupViewModel()
     }
@@ -97,7 +103,10 @@ class ProfileFragment : Fragment() {
 
                         if(it.data.photo != null){
                             ImageHelper.getPicassoWithoutCache(ivPhoto, it.data.photo)
+                            App.sessions!!.putString(Sessions.photo, it.data.photo)
                         }
+                        App.sessions!!.putString(Sessions.name, it.data.name!!)
+                        App.sessions!!.putString(Sessions.email, it.data.email!!)
                     }
                     false -> {
                         Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
@@ -122,6 +131,10 @@ class ProfileFragment : Fragment() {
 
     @OnClick(R.id.llMenu_Profile) fun onProfile(){
         startActivity(Intent(context, EditProfileActivity::class.java))
+    }
+
+    @OnClick(R.id.llAddress) fun onAddress(){
+        startActivity(Intent(context, AddressActivity::class.java))
     }
 
     @OnClick(R.id.llLogout) fun onLogout(){
